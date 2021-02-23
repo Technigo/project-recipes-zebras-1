@@ -39,12 +39,6 @@ const updateHTML = (array) =>{
 })
 }
 
-const filterByIngredients = (checkbox) => {
-  const newArray = recipeArrayFiltered.filter ((element) =>{   
-    return element.ingredientLines.length <= Number(checkbox); 
-  });
-  updateHTML(newArray)
-}
 
 const filterByHealthLable = (value) =>{
   console.log(recipeArrayFiltered)  
@@ -67,6 +61,22 @@ const start = (userInput) => {
       recipeArrayFiltered = recipeArray;
       updateHTML(recipeArrayFiltered)
       
+      
+      //Filter functions
+
+      const filterByIngredients = (checkbox) => {
+        recipeArrayFiltered = recipeArray;
+        const newArray = recipeArrayFiltered.filter ((element) =>{   
+          return element.ingredientLines.length <= Number(checkbox); 
+        });
+        updateHTML(newArray)
+      }
+      //EVENT LISTENER
+      ingredientsFilter.addEventListener('change',() =>{
+        const value = ingredientsFilter.value;
+        filterByIngredients(value);
+      })
+
     })
 
 }
@@ -85,10 +95,10 @@ allCheckboxes.forEach((checkbox)=>{
         start(checkboxValue)
     })
 })
-ingredientsFilter.addEventListener('change',() =>{
-  const value = ingredientsFilter.value;
-  filterByIngredients(value);
-})
+// ingredientsFilter.addEventListener('change',() =>{
+//   const value = ingredientsFilter.value;
+//   filterByIngredients(value);
+// })
 
 healthSelector.addEventListener('change', () => {
   const value = healthSelector.value;
