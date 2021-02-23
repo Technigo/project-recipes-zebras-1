@@ -5,19 +5,12 @@ const form = document.getElementById('form')
 const recipesContainer = document.getElementById('recipes-container')
 const allCheckboxes = document.querySelectorAll('.checkbox')
 const ingredientsFilter = document.getElementById('ingredients')
+const healthSelector = document.getElementById('health-selector')
 
 let recipeArrayFiltered;
 
-//Functions that can only be run within fetch
-const filterByIngredients = (checkbox) => {   //make sure filters can be applied in any order... but wait... maybe this is a non-problem? because the order shouldn't matter?
-    const newArray = recipeArrayFiltered.filter ((element) =>{   
-      return element.ingredientLines.length <= Number(checkbox); 
-  });
-  console.log(newArray)
-  updateHTML(newArray)
-}
+//Function that updates the Recipes
 const updateHTML = (array) =>{
-  console.log(array);
   recipesContainer.innerHTML = "";
   const lableArray = Array.from(
     array, element => element.label
@@ -46,14 +39,23 @@ const updateHTML = (array) =>{
 })
 }
 
-const filterByHealthLable = () =>{
-    recipeArrayFiltered = recipeArray.filter((recipe) => {
-        return recipe.healthLabels.includes('Alcohol-Free')
-      })
+const filterByIngredients = (checkbox) => {
+  const newArray = recipeArrayFiltered.filter ((element) =>{   
+    return element.ingredientLines.length <= Number(checkbox); 
+  });
+  updateHTML(newArray)
+}
+
+const filterByHealthLable = (value) =>{
+  console.log(recipeArrayFiltered)  
+  const newArray = recipeArrayFiltered.filter((recipe) => {
+        return recipe.healthLabels.includes(value)
+      });
+    updateHTML(newArray)
 }
 const start = (userInput) => {
     recipesContainer.innerHTML = "";
-    const API = `https://api.edamam.com/search?q=${userInput}&app_key=6aec21ec4b520e9694efcadc0c641e29&app_id=94e5ef74&from=0&to=20`
+    const API = `https://api.edamam.com/search?q=${userInput}&app_key=6aec21ec4b520e9694efcadc0c641e29&app_id=94e5ef74&from=0&to=50`
   fetch(API)
     .then((response) => {
       return response.json()
@@ -63,41 +65,8 @@ const start = (userInput) => {
         json.hits, element => element.recipe
       ); 
       recipeArrayFiltered = recipeArray;
+      updateHTML(recipeArrayFiltered)
       
-      const recipeTitleArray = Array.from(
-        recipeArrayFiltered, element => element.label
-      );
-      console.log (recipeTitleArray)
-      const recipePictureArray = Array.from(
-        recipeArrayFiltered, element => element.image 
-      );
-      const recipeDietLabelArray = Array.from(
-        recipeArrayFiltered, element => element.healthLabels
-      )
-      const recipeLinkArray =Array.from(
-          recipeArrayFiltered, element => element.url
-      )
-      const recipeSourseArray =Array.from(
-        recipeArrayFiltered, element => element.source 
-      )
-
-      recipeTitleArray.forEach((lable, index) => {
-        const picture = recipePictureArray[index];
-        const sourceURL = recipeLinkArray[index];
-        const source = recipeSourseArray[index]
-        recipesContainer.innerHTML += `
-        <div class="recipe">
-        <img class="recipe-img" src="${picture}" alt="">
-        <p class="recipe-name">${lable}</p>
-        <a class="recipe-link" href="${sourceURL}">${source}</a>
-        </div>
-        `
-        // dietLable.forEach(tag =>{
-        //   recipesContainer.innerHTML += `
-        //   <span class="recipe-health">${tag} </span>
-        //   `
-        // })
-      })
     })
 
 }
@@ -121,3 +90,7 @@ ingredientsFilter.addEventListener('change',() =>{
   filterByIngredients(value);
 })
 
+healthSelector.addEventListener('change', () => {
+  const value = healthSelector.value;
+  filterByHealthLable(value)
+})
