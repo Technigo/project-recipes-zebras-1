@@ -6,6 +6,17 @@ const recipesContainer = document.getElementById('recipes-container')
 
 let recipeArrayFiltered;
 
+//Functions that can only be run within fetch
+const filterByIngredients = () => {
+    recipeArrayFiltered = recipeArray.filter ((element) =>{
+        return element.ingredientLines.length <= 5; 
+  });
+}
+const filterByHealthLable = () =>{
+    recipeArrayFiltered = recipeArray.filter((recipe) => {
+        return recipe.healthLabels.includes('Alcohol-Free')
+      })
+}
 const start = (userInput) => {
   const API = `https://api.edamam.com/search?q=${userInput}&app_key=6aec21ec4b520e9694efcadc0c641e29&app_id=94e5ef74&from=0&to=20`
   fetch(API)
@@ -16,33 +27,18 @@ const start = (userInput) => {
       
       const recipeArray = Array.from(
         json.hits, element => element.recipe
-      )
-      console.log(recipeArray);
-      console.log(recipeArray.length)
-      console.log(recipeArray[0]);
-      console.log(recipeArray[0].ingredientLines);
-      console.log(recipeArray[0].ingredientLines.length);
-      recipeArrayFiltered = recipeArray.filter ((element) =>{
-        return element.ingredientLines.length <= 5; 
-      });
-      console.log(recipeArrayFiltered);
-      
-      recipeArrayFiltered = recipeArray.filter((recipe) => {
-        return recipe.healthLabels.includes('Alcohol-Free')
-      })
-      console.log(recipeArrayFiltered);
+      );
+      recipeArrayFiltered = recipeArray;
       
       const recipeTitleArray = Array.from(
-        json.hits, element => element.recipe.label
+        recipeArrayFiltered, element => element.label
       );
+      console.log (recipeTitleArray)
       const recipePictureArray = Array.from(
-       json.hits, element => element.recipe.image 
+        recipeArrayFiltered, element => element.image 
       );
-      // const recipePictureArray = Array.from(
-      //   json.hits, element = element.recipe.image 
-      //  );
       const recipeDietLabelArray = Array.from(
-        json.hits, element => element.recipe.healthLabels
+        recipeArrayFiltered, element => element.healthLabels
       )
       recipeTitleArray.forEach((lable, index) => {
         const picture = recipePictureArray[index];
