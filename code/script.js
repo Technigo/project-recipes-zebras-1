@@ -4,16 +4,48 @@ const recipe = document.getElementById('category-wrapper')
 const form = document.getElementById('form')
 const recipesContainer = document.getElementById('recipes-container')
 const allCheckboxes = document.querySelectorAll('.checkbox')
+const ingredientsFilter = document.getElementById('ingredients')
 
 let recipeArrayFiltered;
 
 //Functions that can only be run within fetch
-const filterByIngredients = () => {   //make sure filters can be applied in any order... but wait... maybe this is a non-problem? because the order shouldn't matter?
-    const checkbox = document.getElementById('checkbox').value
-    recipeArrayFiltered = recipeArray.filter ((element) =>{
-        return element.ingredientLines.length <= Number(checkbox); 
+const filterByIngredients = (checkbox) => {   //make sure filters can be applied in any order... but wait... maybe this is a non-problem? because the order shouldn't matter?
+    const newArray = recipeArrayFiltered.filter ((element) =>{   
+      return element.ingredientLines.length <= Number(checkbox); 
   });
+  console.log(newArray)
+  updateHTML(newArray)
 }
+const updateHTML = (array) =>{
+  console.log(array);
+  recipesContainer.innerHTML = "";
+  const lableArray = Array.from(
+    array, element => element.label
+  );
+  console.log(lableArray);
+  const pictureArray = Array.from(
+    array, element => element.image
+  );
+  const sourseURLArray = Array.from(
+    array, element => element.url
+  )
+  const sourseArray =Array.from(
+    array, element => element.source
+  )
+  lableArray.forEach((lable, index) => {
+  const picture = pictureArray[index];
+  const sourceURL = sourseURLArray[index];
+  const source = sourseArray[index]
+  recipesContainer.innerHTML += `
+  <div class="recipe">
+  <img class="recipe-img" src="${picture}" alt="">
+  <p class="recipe-name">${lable}</p>
+  <a class="recipe-link" href="${sourceURL}">${source}</a>
+  </div>
+  `
+})
+}
+
 const filterByHealthLable = () =>{
     recipeArrayFiltered = recipeArray.filter((recipe) => {
         return recipe.healthLabels.includes('Alcohol-Free')
@@ -42,20 +74,29 @@ const start = (userInput) => {
       const recipeDietLabelArray = Array.from(
         recipeArrayFiltered, element => element.healthLabels
       )
+      const recipeLinkArray =Array.from(
+          recipeArrayFiltered, element => element.url
+      )
+      const recipeSourseArray =Array.from(
+        recipeArrayFiltered, element => element.source 
+      )
+
       recipeTitleArray.forEach((lable, index) => {
         const picture = recipePictureArray[index];
-        const dietLable = recipeDietLabelArray[index];
+        const sourceURL = recipeLinkArray[index];
+        const source = recipeSourseArray[index]
         recipesContainer.innerHTML += `
         <div class="recipe">
         <img class="recipe-img" src="${picture}" alt="">
         <p class="recipe-name">${lable}</p>
+        <a class="recipe-link" href="${sourceURL}">${source}</a>
         </div>
         `
-        dietLable.forEach(tag =>{
-          recipesContainer.innerHTML += `
-          <span class="recipe-health">${tag} </span>
-          `
-        })
+        // dietLable.forEach(tag =>{
+        //   recipesContainer.innerHTML += `
+        //   <span class="recipe-health">${tag} </span>
+        //   `
+        // })
       })
     })
 
@@ -75,3 +116,8 @@ allCheckboxes.forEach((checkbox)=>{
         start(checkboxValue)
     })
 })
+ingredientsFilter.addEventListener('change',() =>{
+  const value = ingredientsFilter.value;
+  filterByIngredients(value);
+})
+
