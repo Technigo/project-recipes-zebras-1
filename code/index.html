@@ -6,68 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/instagram-square?style=brands">
 </head>
 <body>
+    <section class="Fork-it">
+        <header class="header">
+            <!--<img src="" alt="logo">-->
+            <h1>fork it</h1> 
+            <nav class="navigation">
+                <a href="">home</a>
+                <a href="">profile</a>
+                <a href="">favourites</a>
+            </nav>
+        </header>
 
-  <header class="header"> 
-    <img src="" alt="logo">
-    <nav class="navigation">
-      <a href="">home</a>
-      <a href="">profile</a>
-            <a href="">favourites</a>
-        </nav>
-    </header>
-    <section class="form-wrapper">
-        <h1 class="title"> Find your next food inspiration</h1>
-        <form id="form" class="form">
-            <input id="text-input" class="text-input" type="text" placeholder="find your recipe">
-            <button type="submit" id="submit-button" class="submit-button">Search</button>
-        </form>
-    </section>
-    <section class="categories" id="categories">
-        <div id="category-wrapper" class="category-wrapper">
-            <a href="" class="category">
-            <img src="" alt="Food picture">
-            <h2 class="category-name">Vegeterian</h2>
+        <section class="form-wrapper">
+            <h1 class="title"> Find your next food inspiration</h1>
+            <form id="form" class="form">
+                <input id="text-input" class="text-input" type="text" placeholder="find your recipe">
+                <button id="submit-button" class="submit-button">Search</button>
+            </form>
+        </section>
+
+        <section class="category-wrapper" id="category-wrapper">
+            <a href="#recipes-container" class="category">
+                <img src="" alt="Food picture">
+                <h2 class="category-name">Vegetarian</h2>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <img width="100px" src="https://eatforum.org/content/uploads/2018/05/table_with_food_top_view_900x700.jpg" alt="Food picture">
                 <h2 class="category-name">High-protein</h2>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <img src="" alt="Food picture">
                 <h2 class="category-name">Dinner</h2>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <img src="" alt="Food picture">
                 <h2 class="category-name">Salad</h2>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <img src="" alt="Food picture">
                 <h2 class="category-name">American</h2>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <img src="" alt="Food picture">
                 <h2 class="category-name">Mexican</h2>
             </a>
-        </div>
-    </section>
-
-
-    <div class="recipes-container" id="recipes-container">
-        <!-- <div class="recipe">
-        <img class="recipe-img" src="" alt="">
-        <p class="recipe-name"></p>
-        <p class="recipe-tag"></p>
-        </div> -->
-    
-    </div>
-    <footer>
-        <img src="" alt="logo">
-        <section class="social-media-buttons">
-
         </section>
-    </footer>
+
+        <section>
+            <div class="recipes-container" id="recipes-container">
+               <!--- <div class="recipe">
+                <img class="recipe-img" src="" alt="">
+                <p class="recipe-name"></p>
+                <p class="recipe-tag"></p>
+                </div>
+            </div>-->
+        </section>
+
+        <footer class="footer">
+            <img src="" alt="logo">
+            <div class="social-media-buttons">
+                <i class="fab fa-facebook"></i> 
+                <i class="fab fa-instagram-square"></i>              
+            </div>
+        </footer>
+    </section>
     <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>
