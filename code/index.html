@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fontawesome.com/icons/instagram-square?style=brands">
 </head>
 <body>
-
-  <header class="header"> 
-    <img src="" alt="logo">
-    <nav class="navigation">
-      <a href="">home</a>
-      <a href="">profile</a>
-            <a href="">favourites</a>
-        </nav>
-    </header>
+    <section class="Fork-it">
+        <header class="header">
+            <!--<img src="" alt="logo">-->
+            <h1>fork it</h1> 
+            <nav class="navigation">
+                <a href="">home</a>
+                <a href="">profile</a>
+                <a href="">favourites</a>
+            </nav>
+        </header>
     <section class="form-wrapper">
         <h1 class="title"> Find your next food inspiration</h1>
         <form id="form" class="form">
@@ -26,42 +30,42 @@
     </section>
     <section class="categories" id="categories">
         <div id="category-wrapper" class="category-wrapper">
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="vegetarian" value="vegetarian">
                 <label for="vegetarian">
                     <img src="" alt="Food picture">
                     <h2 class="category-name">Vegetarian</h2>
                 </label>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="high-protein" value="high-protein">
                 <label for="high-protein">
                     <img width="100px" src="https://eatforum.org/content/uploads/2018/05/table_with_food_top_view_900x700.jpg" alt="Food picture">
                     <h2 class="category-name">High-protein</h2>
                 </label>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="dinner" value="dinner">
                 <label for="dinner">
                     <img src="" alt="Food picture">
                     <h2 class="category-name">Dinner</h2>
                 </label>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="salad" value="salad">
                 <label for="salad">
                     <img src="" alt="Food picture">
                     <h2 class="category-name">Salad</h2>
                 </label>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="American" value="American">
                 <label for="American">
                     <img src="" alt="Food picture">
                     <h2 class="category-name">American</h2>
                 </label>
             </a>
-            <a href="" class="category">
+            <a href="#recipes-container" class="category">
                 <input type="checkbox" class="checkbox" id="Mexican" value="American">
                 <label for="Mexican">
                     <img src="" alt="Food picture">
@@ -71,24 +75,24 @@
         </div>
     </section>
 
-
-    <div class="recipes-container" id="recipes-container">
-        <!-- <div class="recipe">
-        <img class="recipe-img" src="" alt="">
-        <p class="recipe-name"></p>
-        <p class="recipe-tag"></p>
-        </div> -->
-    
-    </div>
-    <label for=""> Less than 5 ingredients 
-    <input type="checkbox" id="checkbox" value="5">
-    </label>
-    <footer>
-        <img src="" alt="logo">
-        <section class="social-media-buttons">
-
+        <section>
+            <div class="recipes-container" id="recipes-container">
+               <!--- <div class="recipe">
+                <img class="recipe-img" src="" alt="">
+                <p class="recipe-name"></p>
+                <p class="recipe-tag"></p>
+                </div>
+            </div>-->
         </section>
-    </footer>
+
+        <footer class="footer">
+            <img src="" alt="logo">
+            <div class="social-media-buttons">
+                <i class="fab fa-facebook"></i> 
+                <i class="fab fa-instagram-square"></i>              
+            </div>
+        </footer>
+    </section>
     <script type="text/javascript" src="./script.js"></script>
 </body>
 </html>

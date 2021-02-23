@@ -1,7 +1,150 @@
-body {
-    color: red;
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    margin: 0;
+    background: #f8f1f1;
+    color: #2d4059;
+    width: auto;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* HEADER */
+
+.header {
+    background: #a3d2ca;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 20px;
+    box-shadow: 0px 3px 10px #2d4059;
+}
+.header img{
+    width: auto;
+    height: 100px;
+}
+.navigation a {
+    text-decoration: none;
+    margin: 4px;
+    color: #2d4059;
+    font-weight: medium;
+}
+
+
+
+/* FORM */
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 10px;
+    padding: 20px;
+}   
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;   
+}
+
+.text-input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+.submit-button {
+    background: #eb5e0b;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #f8f1f1;
+    border: #eb5e0b;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+/* FOOD CATEGORIES */
+    
 .category-wrapper {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* margin: 10px;
+    padding: 20px; */
+}
+
+.category {
+    width: 30%;
+    text-decoration: none;
+    color: #2d4059;
+    margin: 10px 6px;
+    display: flex;
+    flex-direction: column-reverse;
+
+}
+
+.category img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.category-name{
+    font-size: 18px;
+    text-align: center;
+    position:absolute;
+    z-index: 1;
+    color: white;
+}
+.recipes-container {
+    scroll-behavior: smooth;
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+    background: #5eaaa8; 
+    position: fixed;
+    bottom: 0;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer img {
+   width: auto;
+   height: 50px;
+    align-self: flex-end;
+}
+
+.social-media-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+}
+
+.fab::before {
+    color: #eb5e0b;
+    font-size: 24px;
+    width: 70px;
+
+}
+
+/* MEDIA QUERIES */
+@media (min-width: 668px){
+    .title{
+        font-size:50px;
+    }
+    .footer {
+        position: relative;
+    }
+
 }
