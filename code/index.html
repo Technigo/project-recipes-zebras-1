@@ -21,41 +21,59 @@
                 <a href="">favourites</a>
             </nav>
         </header>
-
-        <section class="form-wrapper">
-            <h1 class="title"> Find your next food inspiration</h1>
-            <form id="form" class="form">
-                <input id="text-input" class="text-input" type="text" placeholder="find your recipe">
-                <button id="submit-button" class="submit-button">Search</button>
-            </form>
-        </section>
-
-        <section class="category-wrapper" id="category-wrapper">
+    <section class="form-wrapper">
+        <h1 class="title"> Find your next food inspiration</h1>
+        <form id="form" class="form">
+            <input id="text-input" class="text-input" type="text" placeholder="find your recipe">
+            <button type="submit" id="submit-button" class="submit-button">Search</button>
+        </form>
+    </section>
+    <section class="categories" id="categories">
+        <div id="category-wrapper" class="category-wrapper">
             <a href="#recipes-container" class="category">
-                <img src="" alt="Food picture">
-                <h2 class="category-name">Vegetarian</h2>
+                <input type="checkbox" class="checkbox" id="vegetarian" value="vegetarian">
+                <label for="vegetarian">
+                    <img src="" alt="Food picture">
+                    <h2 class="category-name">Vegetarian</h2>
+                </label>
             </a>
             <a href="#recipes-container" class="category">
-                <img width="100px" src="https://eatforum.org/content/uploads/2018/05/table_with_food_top_view_900x700.jpg" alt="Food picture">
-                <h2 class="category-name">High-protein</h2>
+                <input type="checkbox" class="checkbox" id="high-protein" value="high-protein">
+                <label for="high-protein">
+                    <img width="100px" src="https://eatforum.org/content/uploads/2018/05/table_with_food_top_view_900x700.jpg" alt="Food picture">
+                    <h2 class="category-name">High-protein</h2>
+                </label>
             </a>
             <a href="#recipes-container" class="category">
-                <img src="" alt="Food picture">
-                <h2 class="category-name">Dinner</h2>
+                <input type="checkbox" class="checkbox" id="dinner" value="dinner">
+                <label for="dinner">
+                    <img src="" alt="Food picture">
+                    <h2 class="category-name">Dinner</h2>
+                </label>
             </a>
             <a href="#recipes-container" class="category">
-                <img src="" alt="Food picture">
-                <h2 class="category-name">Salad</h2>
+                <input type="checkbox" class="checkbox" id="salad" value="salad">
+                <label for="salad">
+                    <img src="" alt="Food picture">
+                    <h2 class="category-name">Salad</h2>
+                </label>
             </a>
             <a href="#recipes-container" class="category">
-                <img src="" alt="Food picture">
-                <h2 class="category-name">American</h2>
+                <input type="checkbox" class="checkbox" id="American" value="American">
+                <label for="American">
+                    <img src="" alt="Food picture">
+                    <h2 class="category-name">American</h2>
+                </label>
             </a>
             <a href="#recipes-container" class="category">
-                <img src="" alt="Food picture">
-                <h2 class="category-name">Mexican</h2>
+                <input type="checkbox" class="checkbox" id="Mexican" value="American">
+                <label for="Mexican">
+                    <img src="" alt="Food picture">
+                    <h2 class="category-name">Mexican</h2>
+                </label>
             </a>
-        </section>
+        </div>
+    </section>
 
         <section>
             <div class="recipes-container" id="recipes-container">
